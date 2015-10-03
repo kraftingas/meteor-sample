@@ -1,8 +1,18 @@
 <div ng-controller="PostsListCtrl">
+  <form>
+    <label>Name</label>
+    <input ng-model="newPost.title">
+    <label>Description</label>
+    <input ng-model="newPost.body">
+    <button ng-click="save(newPost); newPost='';">Add</button>
+    <button ng-click="removeAll()">Remove All</button>
+  </form>
+
   <ul>
     <li ng-repeat="post in posts">
       <span>{{post.title}}</span>
       <p>{{post.body}}</p>
+      <button ng-click="remove(post)">X</button>
     </li>
   </ul>
 </div>
